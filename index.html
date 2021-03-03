@@ -7,7 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body {
+            font-size: 11px;
+            font-family: 'Open Sans', sans-serif;
+            color: #4A4A4A;
+            text-align: center;
+            background: pink;
+
+        }
+
+        .main {
+            width: 1300px;
+            margin: 0 auto;
+            position: relative;
+            border: 1px solid pink;
+            height: 100vh;
+        }
+
         .card-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -70%);
             -webkit-perspective: 700;
             -moz-perspective: 700;
             perspective: 700;
@@ -16,15 +37,15 @@
         .card {
             margin: 20px;
             background-color: #0871b0;
-            width: 200px;
-            height: 200px;
+            width: 400px;
+            height: 400px;
             text-align: center;
-            line-height: 200px;
             color: #fff;
             transition: all 0.6s ease;
             -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
             positon: relative;
+
         }
 
         .front,
@@ -33,20 +54,23 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 200px;
-            height: 200px;
+            width: 400px;
+            height: 600px;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
         }
 
-        h1 {
-            margin: 0;
-        }
+
 
         .back {
             -webkit-transform: rotateY(180deg);
             -moz-transform: rotateY(180deg);
             transform: rotateY(180deg);
+            background-image: url(./img/clown.png);
+            padding: 20px;
+            font-size: 18px;
+            color: black;
+            text-align: left;
         }
 
         .card:hover {
@@ -54,20 +78,129 @@
             -moz-transform: rotateY(180deg);
             transform: rotateY(180deg);
         }
+
+        #container {
+            margin-top: 100px;
+            position: relative;
+        }
+
+        .pic {
+            width: 250px;
+        }
+
+        #container img:hover {
+            box-shadow: 15px 15px 20px rgba(50, 50, 50, 0.4);
+            transform: rotate(0deg) scale(1.20);
+            -webkit-transform: rotate(0deg) scale(1.20);
+            z-index: 2;
+        }
+
+        #container img {
+            padding: 10px 10px 15px;
+            background: white;
+            border: 1px solid #dddddd;
+            box-shadow: 2px 2px 3px rgba(50, 50, 50, 0.4);
+            -webkit-transition: all 0.5s ease-in;
+            -moz-transition: all 0.5s ease-in;
+            -ms-transition: all 0.5s ease-in;
+            -o-transition: all 0.5s ease-in;
+            transition: all 0.5s ease-in;
+            position: absolute;
+            z-index: 1;
+        }
+
+        /*第一張圖片*/
+        .pic1 {
+            left: 200px;
+            top: -50px;
+            transform: rotate(-5deg);
+            -webkit-transform: rotate(-5deg);
+            -moz-transform: rotate(-5deg);
+            -o-transform: rotate(-5deg);
+        }
+
+        .pic2 {
+            left: 0px;
+            top: -50px;
+            transform: rotate(-20deg);
+            -webkit-transform: rotate(-20deg);
+        }
+
+        @keyframes move {
+            0% {
+                transform: rotate(-10deg);
+            }
+
+            25% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(-10deg);
+            }
+
+            75% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(-10deg);
+            }
+        }
+
+        .best {
+            position: absolute;
+            right: -10%;
+            bottom: 5%;
+            transform: rotate(-10deg);
+            animation-name: move;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
     </style>
 </head>
 
 <body>
-    <div class="card-container">
-        <div class="card">
-            <div class="front">
-                <h1>Hello</h1>
-            </div>
-            <div class="back">
-                <h1>Goodbye</h1>
+    <div class="main">
+        <div class="card-container">
+            <div class="card">
+                <div class="front">
+                    <img src="./img/happy-birthday-image-4.jpg" alt="">
+                </div>
+                <div class="back">
+                    <h1>To 小腦袋瓜</h1>
+                    <p> 本來想說自從結業，最近都在忙面試也沒什機會寫code，
+                        剛好又遇到妳生日就想說好吧，送你一個簡單的禮物，一個工程師會送給工程師的禮物，
+                        於是開始一路寫寫寫，結果竟然卡在最後打字這關，
+                        可能平常或多或少有在瞎聊，一時不知道要寫些什麼。
+                    </p>
+                    <p>
+                        就生日快樂吧，希望妳會喜歡，美術的部分我盡力了，
+                        原諒我手機只有兩張妳的照片，
+                        也原諒我沒做RWD，時間緊迫沒辦法，哈哈哈哈哈
+                    </p>
+                    <p>
+                        祝生日快樂，一切順利，永遠保持妳那可愛的笑容~~~
+                        真心希望我們能一直保持聯絡！
+                    </p>
+                    <p>
+                        by 最近從美國調完時差的人
+                    </p>
+
+                </div>
             </div>
         </div>
+        <div id="container">
+            <img class="pic pic1" src="./img/S__15868354.jpg">
+            <img class="pic pic2" src="./img/S__15868356.jpg">
+        </div>
+        <div class="best">
+            <img src="./img/best.png" alt="">
+        </div>
+
     </div>
+
 </body>
 
 </html>
